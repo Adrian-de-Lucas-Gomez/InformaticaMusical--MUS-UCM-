@@ -39,17 +39,17 @@ def songParser(song):
         elif nombreNota == 'e':
             frecuencia = 659.255
         elif nombreNota == 'f':
-			frecuencia = 698.456
+            frecuencia = 698.456
 
-		if not note[0].isupper():
-			frecuencia /= 2
+        if not note[0].isupper():
+            frecuencia *= 2
 
-		x, frag = osc(frecuencia, note[1])
+        x, frag = osc(frecuencia, note[1])
 
-		x,sil = osc(1, 0.1)
+        #x,sil = osc(1, 0.1)
 
         arr = np.concatenate((arr, frag))
-        arr = np.concatenate((arr, frag))
+        #arr = np.concatenate((sil, frag))
 
     return arr
 
@@ -63,14 +63,21 @@ x, a = osc(100, 10)
 # data = toFloat32(data)
 
 song = [('G', 0.5), ('G', 0.5), ('A', 1), ('G', 1),
- 		('c', 1), ('B', 2), ('G', 0.5), ('G', 0.5),
-		  ('A', 1), ('G', 1), ('d', 1), ('c', 2),
-		 ('G', 0.5), ('G', 0.5), ('g', 1), ('e', 1),
-		  ('c', 1), ('B', 1), ('A', 1), ('f', 0.5),
+         ('c', 1), ('B', 2), ('G', 0.5), ('G', 0.5),
+          ('A', 1), ('G', 1), ('d', 1), ('c', 2),
+         ('G', 0.5), ('G', 0.5), ('g', 1), ('e', 1),
+          ('c', 1), ('B', 1), ('A', 1), ('f', 0.5),
         ('f', 0.5), ('e', 1), ('c', 1), ('d', 1),
-		 ('c', 2)]
+         ('c', 2)]
 
-debugSong = [('G', 0.5), ('G', 0.5), ('A', 1), ('G', 1)]
+debugSong = [('G', 0.5), ('G', 0.5), ('A', 1), ('G', 1),
+         ('c', 1), ('B', 2), ('G', 0.5), ('G', 0.5),
+          ('A', 1), ('G', 1), ('d', 1), ('c', 2),
+         ('G', 0.5), ('G', 0.5), ('g', 1), ('e', 1),
+          ('c', 1), ('B', 1), ('A', 1), ('f', 0.5),
+        ('f', 0.5), ('e', 1), ('c', 1), ('d', 1),
+         ('c', 2)]
+#debugSong = [('C', 0.5), ('D', 0.5), ('E', 0.5), ('F', 0.5), ('G', 0.5),('A', 0.5),('B', 0.5)]
 
 data = songParser(debugSong)
 data = toFloat32(data)

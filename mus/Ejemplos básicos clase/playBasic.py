@@ -5,7 +5,7 @@ import numpy as np  # arrays
 from format_tools import *
 
 # abrimos wav y recogemos frecMuestreo (SRATE) y el array de muestras
-SRATE, data = wavfile.read('ex1.wav')
+SRATE, data = wavfile.read('piano.wav')
 
 # info del wav
 print("SRATE: {}   Format: {}   Channels: {}    Len: {}".
