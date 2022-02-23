@@ -7,22 +7,22 @@ import time, sys
 
 
 
-if len(sys.argv) < 2:
-    print("Plays a wave file.\n\nUsage: %s filename.wav" % sys.argv[0])
-    sys.exit(-1)
+# if len(sys.argv) < 2:
+#     print("Plays a wave file.\n\nUsage: %s filename.wav" % sys.argv[0])
+#     sys.exit(-1)
 
 
 
 
 # abrimos wav y recogemos frecMuestreo (SRATE) y el array de muestras
-SRATE, data = wavfile.read('ex1.wav')
+SRATE, data = wavfile.read('piano.wav')
 # info del wav
 print("SRATE: {}   Format: {}   Channels: {}    Len: {}".
   format(SRATE,data.dtype,len(data.shape), data.shape[0]))
 
 p = pyaudio.PyAudio()
 
-CHUNK = 2048
+CHUNK = 1024
 
 numBloque = 0
 def callback(in_data, frame_count, time_info, status):
