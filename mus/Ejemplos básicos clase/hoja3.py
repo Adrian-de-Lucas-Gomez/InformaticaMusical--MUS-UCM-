@@ -8,7 +8,7 @@ from format_tools import *
 
 
 SRATE = 44100
-
+SEGUNDOS_POR_UNIDAD = 0.5
 
 def osc(f, d):
     a = np.linspace(0, int((2*np.pi)*f*d), int(d * SRATE))
@@ -44,23 +44,16 @@ def songParser(song):
         if not note[0].isupper():
             frecuencia *= 2
 
-        x, frag = osc(frecuencia, note[1])
-
-        #x,sil = osc(1, 0.1)
+        x, frag = osc(frecuencia, note[1] * SEGUNDOS_POR_UNIDAD)
 
         arr = np.concatenate((arr, frag))
-        #arr = np.concatenate((sil, frag))
+
+        sil = np.zeros(int(SRATE/10 * SEGUNDOS_POR_UNIDAD)) #Para que se note mas la diferencia entre notas
+
+        arr = np.concatenate((arr, sil))
 
     return arr
 
-
-x, a = osc(100, 10)
-
-# abrimos wav y recogemos frecMuestreo y array de datos
-# SRATE, data = wavfile.read('piano.wav')
-
-# data = a
-# data = toFloat32(data)
 
 song = [('G', 0.5), ('G', 0.5), ('A', 1), ('G', 1),
          ('c', 1), ('B', 2), ('G', 0.5), ('G', 0.5),
@@ -70,24 +63,11 @@ song = [('G', 0.5), ('G', 0.5), ('A', 1), ('G', 1),
         ('f', 0.5), ('e', 1), ('c', 1), ('d', 1),
          ('c', 2)]
 
-debugSong = [('G', 0.5), ('G', 0.5), ('A', 1), ('G', 1),
-         ('c', 1), ('B', 2), ('G', 0.5), ('G', 0.5),
-          ('A', 1), ('G', 1), ('d', 1), ('c', 2),
-         ('G', 0.5), ('G', 0.5), ('g', 1), ('e', 1),
-          ('c', 1), ('B', 1), ('A', 1), ('f', 0.5),
-        ('f', 0.5), ('e', 1), ('c', 1), ('d', 1),
-         ('c', 2)]
-#debugSong = [('C', 0.5), ('D', 0.5), ('E', 0.5), ('F', 0.5), ('G', 0.5),('A', 0.5),('B', 0.5)]
 
-data = songParser(debugSong)
+input("Pulsa enter para empezar a cantar el cumpleaños feliz :D")
+
+data = songParser(song)
 data = toFloat32(data)
-
-# # informacion de wav
-# print("Sample rate ", SRATE)
-# print("Sample format: ", data.dtype)
-# print("Num channels: ", len(data.shape))
-# print("Len: ", data.shape[0])
-
 
 # arrancamos pyAudio
 p = pyaudio.PyAudio()
@@ -100,7 +80,7 @@ stream = p.open(format=p.get_format_from_width(getWidthData(data)),
                 output=True)
 
 
-# En data tenemos el wav completo, ahora procesamos por bloques (chunks)
+# En data tenemos la cancion completa, ahora procesamos por bloques (chunks)
 bloque = np.arange(CHUNK, dtype=data.dtype)
 numBloque = 0
 kb = kbhit.KBHit()
