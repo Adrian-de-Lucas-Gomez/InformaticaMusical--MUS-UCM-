@@ -16,7 +16,7 @@ from format_tools import *
 if len(sys.argv) < 2:
     #print("Plays a wave file.\n\nUsage: %s filename.wav" % sys.argv[0])
     #sys.exit(-1)
-    wav = 'tormenta.wav'
+    wav = 'muestras/fray.wav'
 else:
     wav = sys.argv[1]
 

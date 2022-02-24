@@ -16,6 +16,8 @@ def osc(f, d):
     x = np.linspace(0, int(d*SRATE), int(d * SRATE))
     return x, a
 
+letrasnotas = 'abcdefg'
+notas = [440,493.883,523.251,587.33,659.255,698.456,783.991]
 
 def songParser(song):
 
@@ -24,22 +26,8 @@ def songParser(song):
     for note in song:
 
         nombreNota = note[0].lower()
-        frecuencia = 0
 
-        if nombreNota == 'g':
-            frecuencia = 783.991
-        elif nombreNota == 'a':
-            frecuencia = 880
-        elif nombreNota == 'b':
-            frecuencia = 987.767
-        elif nombreNota == 'c':
-            frecuencia = 523.251
-        elif nombreNota == 'd':
-            frecuencia = 587.33
-        elif nombreNota == 'e':
-            frecuencia = 659.255
-        elif nombreNota == 'f':
-            frecuencia = 698.456
+        frecuencia = notas[letrasnotas.index(nombreNota)]
 
         if not note[0].isupper():
             frecuencia *= 2
@@ -48,6 +36,7 @@ def songParser(song):
 
         arr = np.concatenate((arr, frag))
 
+
         sil = np.zeros(int(SRATE/10 * SEGUNDOS_POR_UNIDAD)) #Para que se note mas la diferencia entre notas
 
         arr = np.concatenate((arr, sil))
@@ -55,11 +44,11 @@ def songParser(song):
     return arr
 
 
-song = [('G', 0.5), ('G', 0.5), ('A', 1), ('G', 1),
-         ('c', 1), ('B', 2), ('G', 0.5), ('G', 0.5),
-          ('A', 1), ('G', 1), ('d', 1), ('c', 2),
+song = [('G', 0.5), ('G', 0.5), ('a', 1), ('G', 1),
+         ('c', 1), ('b', 2), ('G', 0.5), ('G', 0.5),
+          ('a', 1), ('G', 1), ('d', 1), ('c', 2),
          ('G', 0.5), ('G', 0.5), ('g', 1), ('e', 1),
-          ('c', 1), ('B', 1), ('A', 1), ('f', 0.5),
+          ('c', 1), ('b', 1), ('a', 1), ('f', 0.5),
         ('f', 0.5), ('e', 1), ('c', 1), ('d', 1),
          ('c', 2)]
 
