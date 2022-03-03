@@ -1,4 +1,7 @@
-# 1_numPy/playNumPy.py   reproductor con Chunks
+# Ejercicio 7
+# Alumnos: Andrés Ruiz Bartolomé , Adrián de Lucas Gómez
+
+
 import pyaudio
 import kbhit
 

@@ -1,3 +1,6 @@
+# Ejercicio 10
+# Alumnos: Andrés Ruiz Bartolomé , Adrián de Lucas Gómez
+
 import pyaudio
 import kbhit
 import time
