@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{e99ba594-de29-4a2c-a6b9-f946b4a9a958}">
+		<property name="name">
+			<value>EnemyType-5</value>
+		</property>
+		<relationship name="folder">
+			<destination>{84cac638-3fd3-4480-85e8-3b310020753c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{2ea3193f-c2b1-4dc5-9f33-da9edd1e6c08}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{2ea3193f-c2b1-4dc5-9f33-da9edd1e6c08}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
