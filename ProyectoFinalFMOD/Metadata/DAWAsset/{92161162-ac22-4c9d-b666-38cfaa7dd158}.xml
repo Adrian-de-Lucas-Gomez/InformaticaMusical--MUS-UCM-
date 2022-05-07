@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="DAWAsset" id="{92161162-ac22-4c9d-b666-38cfaa7dd158}">
+		<property name="assetPath">
+			<value>pruebaProyecto.rpp.link/bajo alt3.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>43.200000000000003</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3275a3f7-5391-4b61-b01f-fac88cb0be78}</destination>
+		</relationship>
+		<relationship name="project">
+			<destination>{8d7f542a-f82f-49ff-bc86-90be21570da4}</destination>
+		</relationship>
+	</object>
+</objects>
