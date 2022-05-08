@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -99,6 +100,13 @@ public class GameManager : MonoBehaviour
     public void PlayerHealthUpdate(int playerHealth)
 	{
         eventEmitter.SetParameter("Health", (float)playerHealth);
+
+        if (playerHealth <= 0)  //Si el jugador murio paramos la musica y volvemos al menú principal
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/PlayerDead");
+            eventEmitter.Stop();
+            Invoke("GoBackMenu", 5.0f);
+        }
     }
 
     public void EnemyDead(int index)
@@ -126,5 +134,16 @@ public class GameManager : MonoBehaviour
         float enemPer100 = (enemiesCount[0] + enemiesCount[1] + enemiesCount[2])/(numEne1+numEne2+numEne3) * 100;
 
         eventEmitter.SetParameter("PorcentajeEnemigos", enemPer100);
+
+        if (enemiesCount[0] + enemiesCount[1] + enemiesCount[2] == 0)
+        {
+            Invoke("GoBackMenu", 5.0f);
+        }
+    }
+
+    private void GoBackMenu()
+    {
+        eventEmitter.Stop();
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 }
