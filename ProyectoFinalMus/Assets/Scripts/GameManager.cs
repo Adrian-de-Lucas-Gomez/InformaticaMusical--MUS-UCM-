@@ -131,8 +131,8 @@ public class GameManager : MonoBehaviour
             eventEmitter.SetParameter(paramName, 0);            
 		}
 
-        float enemPer100 = (enemiesCount[0] + enemiesCount[1] + enemiesCount[2])/(numEne1+numEne2+numEne3) * 100;
-
+        float enemPer100 = (float)(enemiesCount[0] + enemiesCount[1] + enemiesCount[2])/(numEne1+numEne2+numEne3) * 100;
+        print(enemPer100);
         eventEmitter.SetParameter("PorcentajeEnemigos", enemPer100);
 
         if (enemiesCount[0] + enemiesCount[1] + enemiesCount[2] == 0)
