@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="DAWProject" id="{d361c6ae-2a3c-4cd0-8e51-cade9a589f82}">
+		<property name="assetPath">
+			<value>pruebaProyecto.rpp.link/</value>
+		</property>
+		<property name="dawProjectPath">
+			<value>pruebaProyecto.rpp</value>
+		</property>
+		<property name="renderedAssetsPath">
+			<value>Renders</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3275a3f7-5391-4b61-b01f-fac88cb0be78}</destination>
+		</relationship>
+	</object>
+</objects>

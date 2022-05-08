@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="ParameterPreset" id="{2065e7b3-56a2-4b73-bb8a-f4e55e5274e7}">
 		<property name="name">
-			<value>Time</value>
+			<value>MasterVolume</value>
 		</property>
 		<relationship name="folder">
 			<destination>{84cac638-3fd3-4480-85e8-3b310020753c}</destination>
@@ -13,13 +13,10 @@
 	</object>
 	<object class="GameParameter" id="{ab59a827-34fd-41d9-90d3-ec8bd9751252}">
 		<property name="maximum">
-			<value>100</value>
-		</property>
-		<property name="isGlobal">
-			<value>true</value>
+			<value>120</value>
 		</property>
 		<property name="initialValue">
-			<value>100</value>
+			<value>120</value>
 		</property>
 		<property name="isExposedRecursively">
 			<value>false</value>

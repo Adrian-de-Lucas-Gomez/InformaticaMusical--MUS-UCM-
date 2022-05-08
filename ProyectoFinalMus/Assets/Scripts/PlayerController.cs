@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+
 	[SerializeField]
 	float speed = 1.0f;
 	[SerializeField]
@@ -22,10 +23,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	TextMeshProUGUI lifeText;
 
-
-
 	float inputSpeed;
-	int life;
+	int life; 
+	
 
 	private void Start()
 	{
@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		life -= dmgTick;
+		GameManager.Instance.PlayerHealthUpdate(life);
 		if (life <= 0) Destroy(this.gameObject);
 		lifeText.text = "Health: "+life;
 	}

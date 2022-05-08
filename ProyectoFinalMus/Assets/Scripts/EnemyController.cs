@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     float limit = 4.0f;
     [SerializeField]
     float movementSpeed = 0.6f;
+    [SerializeField]
+    int enemyIndex = -1;
 
     int direction = 1;
 
@@ -43,6 +45,7 @@ public class EnemyController : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+        GameManager.Instance.EnemyDead(enemyIndex);
         Destroy(this.gameObject);
 	}
 

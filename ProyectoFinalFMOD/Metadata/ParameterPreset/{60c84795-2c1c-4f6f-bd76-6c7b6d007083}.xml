@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{60c84795-2c1c-4f6f-bd76-6c7b6d007083}">
+		<property name="name">
+			<value>PorcentajeEnemigos</value>
+		</property>
+		<relationship name="folder">
+			<destination>{84cac638-3fd3-4480-85e8-3b310020753c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{b07619ab-d85a-48fc-9e64-1aa1aabf1942}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{b07619ab-d85a-48fc-9e64-1aa1aabf1942}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
